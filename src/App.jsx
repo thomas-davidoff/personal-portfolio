@@ -3,9 +3,9 @@ import MyRoutes from "./scenes/global/Routes";
 import { ColorModeContext, useMode } from "./theme";
 import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import { MySidebarProvider } from "./scenes/global/sideBar/SidebarContext";
-import MySidebar from "./scenes/global/sideBar/Sidebar";
 import MyAppBar from "./scenes/global/appBar/Appbar";
 import MainContentContainer from "./scenes/global/mainContainer/MainContent";
+import MySidebar from "./scenes/global/sideBar/Sidebar";
 
 const App = () => {
   const [theme, colorMode] = useMode();

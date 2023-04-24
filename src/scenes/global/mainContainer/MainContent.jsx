@@ -2,7 +2,7 @@ import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import { useContext } from 'react';
 import { sidebarContext } from '../sideBar/SidebarContext';
-import { drawerWidth } from '../sidebar/Sidebar';
+import { drawerWidth } from '../sideBar/Sidebar';
 
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(

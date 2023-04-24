@@ -23,7 +23,7 @@ import { sidebarContext } from '../sideBar/SidebarContext';
 import { ColorModeContext } from '../../../theme';
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import { drawerWidth } from '../sidebar/Sidebar';
+import { drawerWidth } from '../sideBar/Sidebar';
 
 // const drawerWidth = 240;
 
