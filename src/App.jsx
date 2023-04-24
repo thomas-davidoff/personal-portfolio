@@ -5,7 +5,7 @@ import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import MyAppBar from "./scenes/global/appbar/Appbar";
 import MainContentContainer from "./scenes/global/mainContainer/MainContent";
 import MySidebar from "./scenes/global/sidebar/Sidebar";
-import { MySidebarProvider } from "./scenes/global/sideBar/SidebarContext";
+import { MySidebarProvider } from "./scenes/global/sidebar/SidebarContext";
 
 const App = () => {
   const [theme, colorMode] = useMode();
