@@ -10,13 +10,15 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { sidebarContext } from "./SidebarContext";
+import { sidebarContext } from "src/scenes/global/sidebar/SidebarContext";
 import { useContext } from "react";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import NotesOutlinedIcon from "@mui/icons-material/NotesOutlined";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+
+
 
 export const drawerWidth = 500;
 

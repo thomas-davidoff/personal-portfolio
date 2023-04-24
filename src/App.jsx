@@ -7,6 +7,7 @@ import MainContentContainer from "src/scenes/global/mainContainer/MainContent";
 import MySidebar from "src/scenes/global/sidebar/Sidebar";
 import { MySidebarProvider } from "src/scenes/global/sidebar/SidebarContext";
 
+
 const App = () => {
   const [theme, colorMode] = useMode();
 
