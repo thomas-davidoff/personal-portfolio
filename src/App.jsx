@@ -1,6 +1,6 @@
 import * as React from "react";
 import MySidebar from "./scenes/global/sidebar/Sidebar";
-import MyRoutes from "./scenes/global/routes";
+import MyRoutes from "./scenes/global/Routes";
 import ButtonAppBar from "./scenes/global/Topbar";
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
