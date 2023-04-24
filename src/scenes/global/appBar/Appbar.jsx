@@ -6,11 +6,11 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useContext } from 'react';
-import { ColorModeContext } from '../../../theme';
+import { ColorModeContext } from "src/theme";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import { drawerWidth } from '../sidebar/Sidebar';
-import { sidebarContext } from '../sidebar/SidebarContext';
+import { drawerWidth } from 'src/scenes/global/sidebar/Sidebar';
+import { sidebarContext } from 'src/sidebar/SidebarContext';
 
 // const drawerWidth = 240;
 

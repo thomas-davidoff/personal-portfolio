@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "../Home";
-import Blogs from "../Blogs";
-import Contact from "../Contact";
-import NoPage from "../NoPage";
+import Home from "src/scenes/Home";
+import Blogs from "src/scenes/Blogs";
+import Contact from "src/scenes/Contact";
+import NoPage from "src/scenes/NoPage";
 
 const MyRoutes = () => {
     return (

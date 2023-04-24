@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import { useContext } from 'react';
-import { sidebarContext } from '../sidebar/SidebarContext';
-import { drawerWidth } from '../sidebar/Sidebar';
+import { sidebarContext } from 'src/scenes/global/sidebar/SidebarContext';
+import { drawerWidth } from 'src/scenes/global/sidebar/Sidebar';
 
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme, useMediaQuery, Box } from '@mui/material';
-import Header from '../components/Header';
+import Header from 'src/components/Header';
 
 function NoPage() {
     const theme = useTheme();
