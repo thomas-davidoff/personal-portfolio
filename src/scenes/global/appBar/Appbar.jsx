@@ -9,7 +9,7 @@ import { useContext } from 'react';
 import { ColorModeContext } from '../../../theme';
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import { drawerWidth } from '../sideBar/Sidebar';
+import { drawerWidth } from '../sidebar/Sidebar';
 import { sidebarContext } from '../sideBar/SidebarContext';
 
 // const drawerWidth = 240;
