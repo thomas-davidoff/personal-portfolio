@@ -11,6 +11,10 @@ import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { drawerWidth } from 'src/scenes/global/sidebar/Sidebar';
 import { sidebarContext } from 'src/scenes/global/sidebar/SidebarContext';
+import { Divider } from '@mui/material';
+import { Box } from '@mui/material';
+import { Button } from '@mui/material';
+import Link from '@mui/material/Link';
 
 // const drawerWidth = 240;
 
@@ -65,21 +69,41 @@ export default function MyAppBar() {
   const colorMode = useContext(ColorModeContext);
 
   return (
-      <AppBar position="fixed" open={sbIsOpen}>
+      <AppBar 
+        position="fixed" 
+        open={sbIsOpen} 
+        sx={{boxShadow:
+          '0px -15px 4px -1px rgba(0,0,0,0.2), 1px -17px 20px 0px rgba(0,0,0,0.14), 0px 2px 12px 0px rgba(0,0,0,0.12)'
+        }}
+      >
         <Toolbar>
+          <Box sx={{ justifyContent: "left", flex: 1, mr: 2, ...(sbIsOpen && { display: 'none' }) }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={toggle}
             edge="start"
-            sx={{ mr: 2, ...(sbIsOpen && { display: 'none' }) }}
           >
             <MenuIcon />
           </IconButton>
+          </Box>
+          
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Thomas Davidoff
           </Typography>
-          <IconButton onClick={colorMode.toggleColorMode}>
+
+          <Box>
+
+
+            <a
+              href='https://personal-portfolio-pdf-server.s3.us-east-2.amazonaws.com/resume_2_26_23.pdf'
+              title="Click to download my resume."
+              target='_blank'
+              className='resume-link'
+            >
+              Resume
+            </a>
+            <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (
 
            <LightModeOutlinedIcon />
@@ -87,6 +111,9 @@ export default function MyAppBar() {
             <DarkModeOutlinedIcon />
           )}
         </IconButton>
+          </Box>
+          
+          
         </Toolbar>
       </AppBar>
   );

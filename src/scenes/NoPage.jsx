@@ -8,8 +8,8 @@ function NoPage() {
     return (
         <Box m="20px">
             <Header
-                title='404 ERROR Not handled'
-                subtitle='Placeholder for 404 Error page'
+                title='Error (Not really)'
+                subtitle='Not a real error, just making sure it works.'
             />
         </Box>
     );

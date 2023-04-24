@@ -141,7 +141,7 @@ export const themeSettings = (mode) => {
               light: colors.grey[100],
             },
             background: {
-              default: colors.primary[800],
+              default: colors.primary[900],
             },
           }
         : {
@@ -158,7 +158,7 @@ export const themeSettings = (mode) => {
               light: colors.grey[100],
             },
             background: {
-              default: "#fcfcfc",
+              default: colors.primary[900],
             },
           }),
     },
@@ -190,6 +190,9 @@ export const themeSettings = (mode) => {
         fontSize: 14,
       },
     },
+    toolbar: {
+      
+    }
   };
 };
 
@@ -200,7 +203,7 @@ export const ColorModeContext = createContext({
 
 export const useMode = () => {
   //const default_view = (localStorage.getItem("viewMode")) ? (localStorage.getItem("viewMode")) : "dark"
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState("light");
 
   localStorage.setItem("viewMode", mode);
 

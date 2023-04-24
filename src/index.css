@@ -15,6 +15,18 @@ body,
   position: relative;
 }
 
+a.resume-link {
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  color: inherit;
+  line-height: 25px;
+  text-decoration: none;
+  font-family: "Source Sans Pro", "sans-serif"
+  
+}
+
 .sidebar {
   display: flex;
   height: 100vh;

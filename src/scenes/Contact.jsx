@@ -7,7 +7,7 @@ function Contact() {
     const smScreen = useMediaQuery(theme.breakpoints.up("sm"));
     return (
         <Box m="20px">
-            <Header title='Contact Me' subtitle='Placeholder for the contact page.' />
+            <Header title='Let us interface.' subtitle='Here, you can find methods to locate and contact the @!*& out of me.' />
         </Box>
         
     );

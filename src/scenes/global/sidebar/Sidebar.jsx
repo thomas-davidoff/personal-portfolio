@@ -20,7 +20,7 @@ import { useState } from "react";
 
 
 
-export const drawerWidth = 500;
+export const drawerWidth = 300;
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -77,7 +77,7 @@ export default function MySidebar() {
               position: 0,
             },
             {
-              text: "Blogs",
+              text: "Projects",
               icon: <NotesOutlinedIcon />,
               link: "/blog",
               position: 1,
