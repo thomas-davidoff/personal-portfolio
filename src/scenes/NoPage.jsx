@@ -8,7 +8,7 @@ function NoPage() {
     return (
         <Box m="20px">
             <Header
-                title='Blog Page'
+                title='404 ERROR Not handled'
                 subtitle='Placeholder for 404 Error page'
             />
         </Box>

@@ -1,109 +1,113 @@
-import { useState } from "react";
-import { ProSidebarProvider, Sidebar, Menu, MenuItem, useProSidebar, SubMenu } from "react-pro-sidebar";
-import { Link } from "react-router-dom";
-import { useTheme, Box, Typography, IconButton } from "@mui/material";
+import { styled, useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import { sidebarContext } from "./SidebarContext";
+import { useContext } from "react";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
-import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
-import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-import NotesOutlinedIcon from '@mui/icons-material/NotesOutlined';
-import { tokens } from "../../../theme";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import NotesOutlinedIcon from "@mui/icons-material/NotesOutlined";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
-const Item = ({ title, to, icon, selected, setSelected }) => {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
-  
-    return (
-      <MenuItem
-        active={selected === title}
-        style={{ color: colors.grey[100] }}
-        onClick={() => setSelected(title)}
-        icon={icon}
-        component={<Link to={to} />}
-      >
-        <Typography>{title}</Typography>
-      </MenuItem>
-    );
+export const drawerWidth = 500;
+
+const DrawerHeader = styled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+  justifyContent: "flex-end",
+}));
+
+export default function MySidebar() {
+  const theme = useTheme();
+  const { sbIsOpen, toggle } = useContext(sidebarContext);
+  const [selectedIndex, setSelectedIndex] = useState(1);
+
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
   };
 
-const MySidebar = () => {
-    const { collapseSidebar } = useProSidebar();
-    const [selected, setSelected] = useState("Home");
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
-    // const viewHeight = window.outerHeight;
-    return (
-        <Sidebar className="sidebar" breakPoint="always" style={{
-backgroundColor:colors.primary[500]
-        }}>
-          <Box>
-        <Menu>
-          <MenuItem
-            icon={<MenuOutlinedIcon />}
-            onClick={() => {
-              collapseSidebar();
-            }}
-            style={{ textAlign: "center" }}
-          >
-            {" "}
-            <Typography variant="h5">Welcome</Typography>
-          </MenuItem>
+  const menuItemCount = 0;
 
-          {/* Homepage */}
-          <Item
-              title="Home"
-              to="/"
-              icon={<HomeOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            {/* Blog page */}
-            <Item
-              title="Blogs"
-              to="/blogs"
-              icon={<NotesOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            {/* Contact Page */}
-            <Item
-              title="Contact Me"
-              to="/contact"
-              icon={<EmailOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            {/* Placeholder PT app */}
-            <SubMenu
-                icon={<ReceiptOutlinedIcon />}
-                label = {<Typography>Test Pages (404)</Typography>}
+  return (
+    <Box sx={{ display: "flex" }}>
+      <Drawer
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          "& .MuiDrawer-paper": {
+            width: drawerWidth,
+            boxSizing: "border-box",
+          },
+        }}
+        variant="persistent"
+        anchor="left"
+        open={sbIsOpen}
+      >
+        <DrawerHeader>
+          <IconButton onClick={toggle}>
+            {theme.direction === "ltr" ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
+          </IconButton>
+        </DrawerHeader>
+        <Divider />
+
+        <List>
+          {[
+            {
+              text: "Home",
+              icon: <HomeOutlinedIcon />,
+              link: "/",
+              position: 0,
+            },
+            {
+              text: "Blogs",
+              icon: <NotesOutlinedIcon />,
+              link: "/blog",
+              position: 1,
+            },
+            {
+              text: "Contact",
+              icon: <EmailOutlinedIcon />,
+              link: "/contact",
+              position: 2,
+            },
+          ].map((mappedObject) => (
+            <ListItem
+              key={`${mappedObject.text}_${mappedObject.link}`}
+              disablePadding
             >
-                <div>
-                    <Item
-                        title="Page 1"
-                        to="/page 1"
-                        icon={<HelpOutlineOutlinedIcon />}
-                        selected={selected}
-                        setSelected={setSelected}
-                    />
-                    <Item
-                        title="Page 2"
-                        to="/page 2"
-                        icon={<HelpOutlineOutlinedIcon />}
-                        selected={selected}
-                        setSelected={setSelected}
-                    />
-                </div>
-                
-            </SubMenu>
-        </Menu>
-        </Box>
-      </Sidebar>
-    )
-}
+              <ListItemButton
+                component={Link}
+                to={mappedObject.link}
+                selected={selectedIndex === mappedObject.position}
+                onClick={(event) =>
+                  handleListItemClick(event, mappedObject.position)
+                }
+              >
+                <ListItemIcon>{mappedObject.icon}</ListItemIcon>
+                <ListItemText primary={mappedObject.text} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
 
-export default MySidebar;
+        <Divider />
+      </Drawer>
+    </Box>
+  );
+}

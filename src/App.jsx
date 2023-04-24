@@ -1,9 +1,11 @@
 import * as React from "react";
-import MySidebar from "./scenes/global/sidebar/Sidebar";
 import MyRoutes from "./scenes/global/Routes";
-import ButtonAppBar from "./scenes/global/Topbar";
 import { ColorModeContext, useMode } from "./theme";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { Box, CssBaseline, ThemeProvider } from "@mui/material";
+import { MySidebarProvider } from "./scenes/global/sideBar/SidebarContext";
+import MySidebar from "./scenes/global/sideBar/Sidebar";
+import MyAppBar from "./scenes/global/appBar/Appbar";
+import MainContentContainer from "./scenes/global/mainContainer/MainContent";
 
 const App = () => {
   const [theme, colorMode] = useMode();
@@ -12,18 +14,19 @@ const App = () => {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-
-        <div id="app" style={({ height: "100vh" }, { display: "flex" })}>
-          <MySidebar />
-
-          <div
-            className="content-wrapper"
-            style={{ height: "100vh", width: "100%" }}
-          >
-            <ButtonAppBar />
-            <MyRoutes />
+        <MySidebarProvider>
+          
+          <div id="app" style={{ height: "100vh" }}>
+            <Box sx={{ display: 'flex' }}>
+              <MySidebar />
+              <MyAppBar />
+              <MainContentContainer>
+                <MyRoutes />
+              </MainContentContainer>
+            </Box>
           </div>
-        </div>
+          
+        </MySidebarProvider>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

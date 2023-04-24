@@ -9,7 +9,6 @@ function Home() {
     <Box m="20px">
       <Header title={"Hello"} subtitle={"Welcome"}></Header>{" "}
       <div>
-        <h1>this is the homepage!</h1>
         <h2>These are the things I need to do:</h2>
         <li>
           Create theme, understand context
