@@ -1,5 +1,6 @@
 import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
+import { grey, blue, red, purple } from "@mui/material/colors";
 
 // color design tokens export
 export const tokens = (mode) => ({
@@ -130,36 +131,45 @@ export const themeSettings = (mode) => {
         ? {
             // palette values for dark mode
             primary: {
-              main: colors.primary[100],
+              main: grey[500],
             },
             secondary: {
-              main: colors.greenAccent[500],
+              main: blue[500],
             },
             neutral: {
-              dark: colors.grey[700],
-              main: colors.grey[500],
-              light: colors.grey[100],
+              // dark: colors.grey[700],
+              main: red[500],
+              // light: colors.grey[100],
             },
             background: {
-              default: colors.primary[900],
+              default: '#001e3c',
             },
           }
         : {
             // palette values for light mode
             primary: {
-              main: colors.primary[400],
+              main: '#1f3d50',
             },
             secondary: {
-              main: colors.greenAccent[500],
-            },
-            neutral: {
-              dark: colors.grey[700],
-              main: colors.grey[500],
-              light: colors.grey[100],
+              main: '#5fb7ea',
             },
             background: {
-              default: colors.primary[900],
+              default: '#f4f3fd',
+              paper: '#f2f1f9'
             },
+            error: {
+              main: '#ff8a00'
+            },
+            // neutral: {
+            //   dark: colors.grey[700],
+            //   main: colors.grey[500],
+            //   light: colors.grey[100],
+            // },
+            contrastThreshold: 3,
+            tonalOffset: 0.2,
+            // background: {
+            //   default: colors.primary[900],
+            // },
           }),
     },
     typography: {
@@ -202,10 +212,7 @@ export const ColorModeContext = createContext({
 });
 
 export const useMode = () => {
-  //const default_view = (localStorage.getItem("viewMode")) ? (localStorage.getItem("viewMode")) : "dark"
   const [mode, setMode] = useState("light");
-
-  localStorage.setItem("viewMode", mode);
 
   const colorMode = useMemo(
     () => ({
@@ -218,3 +225,5 @@ export const useMode = () => {
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   return [theme, colorMode];
 };
+
+

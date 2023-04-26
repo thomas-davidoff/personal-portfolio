@@ -1,25 +1,28 @@
 import React from "react";
 import { Typography, Box, useTheme } from "@mui/material";
 import { tokens } from "../theme";
+import Divider from "@mui/material/Divider";
 
 const Header = ({ title, subtitle }) => {
   const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+  // const colors = tokens(theme.palette.mode);
 
   return (
-    <Box mb="30px">
+    <React.Fragment>
       <Typography
         variant="h2"
-        color={colors.grey[100]}
+        color='primary'
         fontWeight="bold"
+        align= 'center'
         sx={{ mb: "5px" }}
       >
         {title}
       </Typography>
-      <Typography variant="h5" color={colors.greenAccent[400]}>
+      <Typography variant="h5" color='secondary' align= 'center' sx={{mb:'15px'}}>
         {subtitle}
       </Typography>
-    </Box>
+      <Divider/>
+    </React.Fragment>
   );
 };
 

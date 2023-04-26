@@ -38,6 +38,7 @@ export default function MySidebar() {
 
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
+    toggle();
   };
 
   const menuItemCount = 0;
@@ -79,7 +80,7 @@ export default function MySidebar() {
             {
               text: "Projects",
               icon: <NotesOutlinedIcon />,
-              link: "/blog",
+              link: "/blogs",
               position: 1,
             },
             {
