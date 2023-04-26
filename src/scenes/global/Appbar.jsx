@@ -11,31 +11,11 @@ import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { drawerWidth } from 'src/scenes/global/sidebar/Sidebar';
 import { sidebarContext } from 'src/scenes/global/sidebar/SidebarContext';
-import { Divider } from '@mui/material';
+import { Divider, alpha, hexToRgb } from '@mui/material';
 import { Box } from '@mui/material';
 import { Button } from '@mui/material';
 import Link from '@mui/material/Link';
 
-// const drawerWidth = 240;
-
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: `-${drawerWidth}px`,
-    ...(open && {
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
-    }),
-  }),
-);
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -71,9 +51,12 @@ export default function MyAppBar() {
   return (
       <AppBar 
         position="fixed" 
-        open={sbIsOpen} 
-        sx={{boxShadow:
-          '0px -15px 4px -1px rgba(0,0,0,0.2), 1px -17px 20px 0px rgba(0,0,0,0.14), 0px 2px 12px 0px rgba(0,0,0,0.12)'
+        open={sbIsOpen}
+        sx={{
+          backgroundColor: alpha(theme.palette.primary.main, 0.9),
+
+          boxShadow:
+          '0px -15px 4px -1px rgba(0,,0,0.2), 1px -17px 20px 0px rgba(0,0,0,0.14), 0px 2px 12px 0px rgba(0,0,0,0.12)'
         }}
       >
         <Toolbar>
