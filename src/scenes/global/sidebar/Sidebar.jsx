@@ -80,7 +80,7 @@ export default function MySidebar() {
             {
               text: "Projects",
               icon: <NotesOutlinedIcon />,
-              link: "/blogs",
+              link: "/projects",
               position: 1,
             },
             {

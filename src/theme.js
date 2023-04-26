@@ -155,16 +155,11 @@ export const themeSettings = (mode) => {
             },
             background: {
               default: '#f4f3fd',
-              paper: '#f2f1f9'
+              paper: '#EFECF5'
             },
             error: {
               main: '#ff8a00'
             },
-            // neutral: {
-            //   dark: colors.grey[700],
-            //   main: colors.grey[500],
-            //   light: colors.grey[100],
-            // },
             contrastThreshold: 3,
             tonalOffset: 0.2,
             // background: {
