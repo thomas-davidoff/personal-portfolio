@@ -13,7 +13,7 @@ import { drawerWidth } from 'src/scenes/global/sidebar/Sidebar';
 import { sidebarContext } from 'src/scenes/global/sidebar/SidebarContext';
 import { Divider, alpha, hexToRgb } from '@mui/material';
 import { Box } from '@mui/material';
-import { Button } from '@mui/material';
+import { Button, Stack } from '@mui/material';
 import Link from '@mui/material/Link';
 
 
@@ -60,7 +60,15 @@ export default function MyAppBar() {
         }}
       >
         <Toolbar>
-          <Box sx={{ justifyContent: "left", flex: 1, mr: 2, ...(sbIsOpen && { display: 'none' }) }}>
+          <Stack
+          direction='row'
+          alignItems='center'
+          justifyContent='space-between'
+          spacing={2}
+          flexGrow={1}
+          >
+            {/* Open Close toggle */}
+          <Box display='flex' flexDirection='row' alignItems='center' sx={{ ...(sbIsOpen && { display: 'none' }) }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -69,24 +77,20 @@ export default function MyAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          </Box>
-          
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6">
             Thomas Davidoff
           </Typography>
+          
+          </Box>
+          {/* Title */}
 
+          {/* Dark/Light and Links */}
           <Box>
-
-
-            <a
-              href='https://personal-portfolio-pdf-server.s3.us-east-2.amazonaws.com/resume_2_26_23.pdf'
-              title="Click to download my resume."
-              target='_blank'
-              className='resume-link'
+            
+            <IconButton 
+            onClick={colorMode.toggleColorMode}
+            sx={{color: "#FFF"}}
             >
-              Resume
-            </a>
-            <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (
 
            <LightModeOutlinedIcon />
@@ -95,6 +99,12 @@ export default function MyAppBar() {
           )}
         </IconButton>
           </Box>
+          </Stack>
+          
+          
+          
+          
+
           
           
         </Toolbar>
