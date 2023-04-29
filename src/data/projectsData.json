@@ -1,0 +1,62 @@
+[
+    {
+        "title" : "ADM PT Appointment Reminder Bot",
+        "technologies" : [
+            "Python",
+            "GoogleAPI",
+            "Shell"
+        ],
+        "links" : [
+            {
+                "label" : "Github",
+                "destination" : "https://github.com/thomas-davidoff/ADM-Reminder-Bot",
+                "type" : "github"
+            },
+            {
+                "label" : "Info",
+                "destination" : "https://github.com/thomas-davidoff/ADM-Reminder-Bot",
+                "type" : "website"
+            }
+        ]
+    },
+    {
+        "title" : "Personal Portfolio Webapp (This site)",
+        "technologies" : [
+            "React",
+            "Javascript",
+            "Docker"
+        ],
+        "links" : [
+            {
+                "label" : "Github",
+                "destination" : "https://github.com/thomas-davidoff/personal-portfolio",
+                "type" : "github"
+            },
+            {
+                "label" : "Homepage",
+                "destination" : "https://www.thomasdavidoff.com",
+                "type" : "website"
+            }
+        ]
+    },
+    {
+        "title" : "Prunalyzer",
+        "technologies" : [
+            "Python",
+            "Streamlit"
+        ],
+        "links" : [
+            {
+                "label" : "Github",
+                "destination" : "https://github.com/thomas-davidoff/Prunalyzer",
+                "type" : "github"
+            },
+            {
+                "label" : "Live Demo",
+                "destination" : "https://thomas-davidoff-prunalyzer-home-qzshw3.streamlit.app/",
+                "type" : "website"
+            }
+        ]
+    }
+]
+

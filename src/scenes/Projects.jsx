@@ -3,12 +3,13 @@ import { useTheme, useMediaQuery, Box, styled, Paper, Card, Divider, Button } fr
 import Header from "src/components/Header";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import PaperCard from "src/components/PaperCard";
+import projectData from "src/data/projectsData.json"
 
 
 
 function Blogs() {
   const theme = useTheme();
-  const smScreen = useMediaQuery(theme.breakpoints.up("sm"));
+  const projects = projectData
 
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : theme.palette.background.default,
@@ -39,24 +40,15 @@ function Blogs() {
             spacing={{ xs: 2, md: 3 }}
             columns={{ xs: 4, md: 12 }}
           >
-            <Grid xs={6}>
-                <PaperCard title='Project 1' subtitle='This is project 1' />
-            </Grid>
-            <Grid xs={6}>
-              <PaperCard title='Project 1' subtitle='This is project 1' />
-            </Grid>
-            <Grid xs={6}>
-            <PaperCard title='Project 1' subtitle='This is project 1' />
-            </Grid>
-            <Grid xs={6}>
-            <PaperCard title='Project 1' subtitle='This is project 1' />
-            </Grid>
-            <Grid xs={6}>
-            <PaperCard title='Project 1' subtitle='This is project 1' />
-            </Grid>
-            <Grid xs={6}>
-            <PaperCard title='Project 1' subtitle='This is project 1' />
-            </Grid>
+            {projects.map((project) => (
+              <Grid xs={6} key={`${project.title}_grid_card`}>
+                <PaperCard
+                  title={project.title}
+                  technologies={project.technologies}
+                  links={project.links}
+                />
+              </Grid>
+            ))}
           </Grid>
         </Box>
       </Box>

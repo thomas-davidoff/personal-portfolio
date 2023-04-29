@@ -1,11 +1,12 @@
 import * as React from "react";
 import MyRoutes from "src/scenes/global/Routes";
 import { ColorModeContext, useMode } from "src/theme";
-import { Box, CssBaseline, ThemeProvider } from "@mui/material";
+import { Box, CssBaseline } from "@mui/material";
 import MyAppBar from "src/scenes/global/Appbar";
 import MainContentContainer from "src/scenes/global/MainContent";
 import MySidebar from "src/scenes/global/sidebar/Sidebar";
 import { MySidebarProvider } from "src/scenes/global/sidebar/SidebarContext";
+import { ThemeProvider } from "@mui/material/styles";
 
 
 const App = () => {

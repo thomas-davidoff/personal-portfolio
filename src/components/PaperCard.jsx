@@ -1,20 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   useTheme,
   Box,
-  styled,
   Paper,
   Button,
   Chip,
   Typography,
   Stack
 } from "@mui/material";
-import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import styled from "@emotion/styled";
+import { LanguageSharp } from "@mui/icons-material";
 
-const PaperCard = ({
-  title = "Project",
-  subtitle = "This is an example project"
-}) => {
+const PaperCard = ({ title = "Project", technologies = [], links = [] }) => {
   const theme = useTheme();
   const Item = styled(Paper)(() => ({
     backgroundColor:
@@ -22,11 +21,27 @@ const PaperCard = ({
         ? "#1A2027"
         : theme.palette.background.default,
     ...theme.typography.body2,
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     // textAlign: "center",
     color: theme.palette.text.secondary,
     border: "1px solid transparent",
   }));
+
+
+  const giveIcon = (iconKey) => {
+    const iconMap = {
+        'github': <GitHubIcon />,
+        'website': <LanguageSharp />
+    }
+
+    if (iconKey in iconMap) {
+        return iconMap[iconKey]
+    }
+    else {
+        return null
+    }
+  }
+
 
   return (
     <Item
@@ -34,31 +49,45 @@ const PaperCard = ({
         "&:hover": {
           color: "gray",
           border: `1px solid ${theme.palette.secondary.main}`,
-          bgcolor: theme.palette.background.paper
+          bgcolor: theme.palette.background.paper,
         },
       }}
     >
       {/* Header Box */}
-      <Stack
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={3}
-      >
+      <Stack direction="row" justifyContent="center" alignItems="center">
         <Box
-        // border="solid 1px red"
+          borderRight={`1px solid ${theme.palette.grey[300]}`}
+          paddingRight="10px"
+          marginRight="5px"
         >
           {/* Title/subtitle */}
-          <Typography variant="h5" color="primary" fontWeight='bold'>
+          <Typography variant="h5" color="primary" fontWeight="bold">
             {title}
           </Typography>
           <Typography variant="h6" color="secondary" gutterBottom>
-            {subtitle}
+            {technologies.join(" | ")}
           </Typography>
           {/* Chips */}
           <Stack direction="row" spacing={1} marginRight={1}>
-            <Chip label="Python" size="small" />
-            <Chip label="Javascript" size="small" />
+            {links.map((mappedObj) => (
+              <Chip
+                key={`${title}_chip_link_to_${mappedObj.label}`}
+                label={mappedObj.label}
+                size="small"
+                component="a"
+                href={mappedObj.destination}
+                target="_blank"
+                clickable
+                // icon={
+                //   mappedObj.type in iconMapping ? (
+                //     iconMapping[mappedObj.type]
+                //   ) : (
+                //     <ArrowForwardRoundedIcon />
+                //   )
+                // }
+                icon={giveIcon(mappedObj.type)}
+              />
+            ))}
           </Stack>
         </Box>
         <Box
