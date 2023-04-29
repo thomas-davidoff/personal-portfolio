@@ -8,7 +8,7 @@ function Home() {
   return (
     <Box m="20px">
       <Header title={"Hello"} subtitle={"Welcome"}></Header>{" "}
-      
+
     </Box>
   );
 }
