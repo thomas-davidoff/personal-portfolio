@@ -36,7 +36,7 @@ export default function MySidebar() {
   const theme = useTheme();
   const colors = theme.palette
   const { sbIsOpen, toggle } = useContext(sidebarContext);
-  const [selectedIndex, setSelectedIndex] = useState(1);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);

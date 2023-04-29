@@ -59,6 +59,7 @@ const PaperCard = ({ title = "Project", technologies = [], links = [] }) => {
           borderRight={`1px solid ${theme.palette.grey[300]}`}
           paddingRight="10px"
           marginRight="5px"
+          width='400px'
         >
           {/* Title/subtitle */}
           <Typography variant="h5" color="primary" fontWeight="bold">
@@ -78,20 +79,12 @@ const PaperCard = ({ title = "Project", technologies = [], links = [] }) => {
                 href={mappedObj.destination}
                 target="_blank"
                 clickable
-                // icon={
-                //   mappedObj.type in iconMapping ? (
-                //     iconMapping[mappedObj.type]
-                //   ) : (
-                //     <ArrowForwardRoundedIcon />
-                //   )
-                // }
                 icon={giveIcon(mappedObj.type)}
               />
             ))}
           </Stack>
         </Box>
         <Box
-          //   border="solid 1px blue"
           display="flex"
           alignItems="center"
           justifyContent="center"
