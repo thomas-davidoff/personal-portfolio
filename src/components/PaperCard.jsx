@@ -25,6 +25,7 @@ const PaperCard = ({ title = "Project", technologies = [], links = [] }) => {
     // textAlign: "center",
     color: theme.palette.text.secondary,
     border: "1px solid transparent",
+    transition: 'all .2s ease-in-out'
   }));
 
 
@@ -50,6 +51,7 @@ const PaperCard = ({ title = "Project", technologies = [], links = [] }) => {
           color: "gray",
           border: `1px solid ${theme.palette.secondary.main}`,
           bgcolor: theme.palette.background.paper,
+          scale: '1.02'
         },
       }}
     >
