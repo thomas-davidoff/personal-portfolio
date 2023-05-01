@@ -15,7 +15,7 @@ const Header = ({ title, subtitle }) => {
     >
       <Box  borderBottom={`3px solid ${theme.palette.primary.main}`}  display='inline-block' minWidth='260px'>
       <Typography
-        variant="h2"
+        variant="h1"
         color='primary'
         fontWeight="bold"
         align= 'center'

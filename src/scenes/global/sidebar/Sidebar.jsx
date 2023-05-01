@@ -19,8 +19,6 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@mui/material";
 
-
-
 export const drawerWidth = 300;
 
 const DrawerHeader = styled("div")(({ theme }) => ({
@@ -34,7 +32,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 export default function MySidebar() {
   const theme = useTheme();
-  const colors = theme.palette
+  const colors = theme.palette;
   const { sbIsOpen, toggle } = useContext(sidebarContext);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -61,7 +59,6 @@ export default function MySidebar() {
         open={sbIsOpen}
       >
         <DrawerHeader>
-          
           <IconButton onClick={toggle}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
@@ -113,26 +110,25 @@ export default function MySidebar() {
         </List>
 
         <Divider />
-            <Box
-            display='flex'
-            // border='1px solid red'
-            justifyContent='center'
-            >
-            <Button
-            variant='contained'
-        component='a'
-        href='https://personal-portfolio-pdf-server.s3.us-east-2.amazonaws.com/resume_2_26_23.pdf'
-        title="Click to go to my resume."
-        target='_blank'
-        sx={{
-          padding: '5px',
-          mt: '10px'
-        }}
+        <Box
+          display="flex"
+          // border='1px solid red'
+          justifyContent="center"
         >
-          Resume
-        </Button>
-            </Box>
-        
+          <Button
+            variant="contained"
+            component="a"
+            href="https://personal-portfolio-pdf-server.s3.us-east-2.amazonaws.com/resume_2_26_23.pdf"
+            title="Click to go to my resume."
+            target="_blank"
+            sx={{
+              padding: "5px",
+              mt: "10px",
+            }}
+          >
+            Resume
+          </Button>
+        </Box>
       </Drawer>
     </Box>
   );
