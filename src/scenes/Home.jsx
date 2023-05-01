@@ -45,8 +45,8 @@ function Home() {
         justifyContent: 'center'
       }}>
 
-        <IconBox icon={LinkedInIcon} to="https://www.google.com" />
-        <IconBox icon={GitHubIcon} to="https://www.google.com" />
+        <IconBox icon={LinkedInIcon} to="https://www.linkedin.com/in/thomas-davidoff" />
+        <IconBox icon={GitHubIcon} to="https://github.com/thomas-davidoff" />
         <IconBox icon={MailIcon} to="mailto:thomas.davidoff@gmail.com" />
         
       </Stack>
