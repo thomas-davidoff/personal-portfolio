@@ -15,7 +15,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const PaperCard = ({ title = "Project", technologies = [], links = [] }) => {
+const PaperCard = ({ title = "Project", technologies = [], links = [], description = 'Example descriptioon' }) => {
   const theme = useTheme();
 
   const AccordionItem = styled(Accordion)(() => ({
@@ -92,8 +92,7 @@ const PaperCard = ({ title = "Project", technologies = [], links = [] }) => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+            {description}
           </Typography>
         </AccordionDetails>
 

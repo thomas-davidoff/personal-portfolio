@@ -46,6 +46,7 @@ function Blogs() {
                   title={project.title}
                   technologies={project.technologies}
                   links={project.links}
+                  description={project.description}
                 />
               </Grid>
             ))}

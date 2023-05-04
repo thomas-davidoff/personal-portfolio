@@ -17,7 +17,8 @@
                 "destination" : "https://github.com/thomas-davidoff/ADM-Reminder-Bot",
                 "type" : "website"
             }
-        ]
+        ],
+        "description" : "Lorem ipsum"
     },
     {
         "title" : "Personal Portfolio Webapp (This site)",
@@ -37,7 +38,8 @@
                 "destination" : "https://www.thomasdavidoff.com",
                 "type" : "website"
             }
-        ]
+        ],
+        "description" : "Lorem ipsum"
     },
     {
         "title" : "Prunalyzer",
@@ -56,7 +58,8 @@
                 "destination" : "https://thomas-davidoff-prunalyzer-home-qzshw3.streamlit.app/",
                 "type" : "website"
             }
-        ]
+        ],
+        "description" : "This is blab balasdasdlasdasasdasd sdkjanskdjnas"
     }
 ]
 
