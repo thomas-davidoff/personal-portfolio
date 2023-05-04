@@ -47,7 +47,6 @@ export default function MyAppBar() {
   const theme = useTheme();
   const { sbIsOpen, toggle } = useContext(sidebarContext);
   const colorMode = useContext(ColorModeContext);
-  const smallScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <AppBar
@@ -64,10 +63,9 @@ export default function MyAppBar() {
           md: theme.palette.background.paper,
         },
         boxShadow: {
-          xs: 'none',
-          md: "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)"
-      
-        }
+          xs: "none",
+          md: "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
+        },
       }}
     >
       <Toolbar>
@@ -96,20 +94,12 @@ export default function MyAppBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Link
-                href={'/'}
-                color="inherit"
-                underline="none"
-              >
-                <Typography variant="h5">Thomas Davidoff</Typography>
-              </Link>
+            <Link href={"/"} color="inherit" underline="none">
+              <Typography variant="h5">THOMAS DAVIDOFF</Typography>
+            </Link>
           </Box>
 
-          <Stack
-            direction="row"
-            spacing={theme.spacing(1)}
-            alignItems="center"
-          >
+          <Stack direction="row" spacing={theme.spacing(1)} alignItems="center">
             {[
               {
                 text: "Projects",
@@ -120,23 +110,34 @@ export default function MyAppBar() {
                 link: "/contact",
               },
             ].map((obj) => (
-              <Link
-                href={obj.link}
-                color="inherit"
-                underline="none"
-                sx={{
-                  display: {
-                    xs: "none",
-                    md: "block",
-                  },
-                  "&:hover": {
-                    textDecoration: "underline",
-                  },
-                }}
-              >
-                {obj.text}
-              </Link>
+              <Box display="flex" position="relative">
+                <Link
+                  href={obj.link}
+                  color="inherit"
+                  underline="none"
+                  sx={{
+                    "&:hover::before": {
+                      position: "absolute",
+                      content: '""',
+                      top: "-5px",
+                      backgroundColor: theme.palette.background.paper,
+                      width: "5px",
+                      height: "5px",
+                      borderRadius: "100%",
+                      display: "inline-flex",
+                      left: "calc(50% - 2.5px)",
+                    },
+                    display: {
+                      xs: "none",
+                      md: "flex",
+                    },
+                  }}
+                >
+                  {obj.text}
+                </Link>
+              </Box>
             ))}
+
             <IconButton
               onClick={colorMode.toggleColorMode}
               sx={{
