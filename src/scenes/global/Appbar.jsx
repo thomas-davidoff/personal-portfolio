@@ -96,7 +96,13 @@ export default function MyAppBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h5">Thomas Davidoff</Typography>
+            <Link
+                href={'/'}
+                color="inherit"
+                underline="none"
+              >
+                <Typography variant="h5">Thomas Davidoff</Typography>
+              </Link>
           </Box>
 
           <Stack
