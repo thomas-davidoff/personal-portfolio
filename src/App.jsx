@@ -7,6 +7,7 @@ import MainContentContainer from "src/scenes/global/MainContent";
 import MySidebar from "src/scenes/global/sidebar/Sidebar";
 import { MySidebarProvider } from "src/scenes/global/sidebar/SidebarContext";
 import { ThemeProvider } from "@mui/material/styles";
+import GithubFooter from "src/scenes/global/GithubFooter";
 
 
 const App = () => {
@@ -22,9 +23,12 @@ const App = () => {
             <Box sx={{ display: 'flex' }}>
               <MySidebar />
               <MyAppBar />
+              
               <MainContentContainer>
                 <MyRoutes />
               </MainContentContainer>
+              <GithubFooter />
+              
             </Box>
           </div>
           
