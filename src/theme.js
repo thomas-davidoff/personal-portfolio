@@ -123,7 +123,6 @@ export const tokens = (mode) => ({
 
 // mui theme settings
 export const themeSettings = (mode) => {
-  const colors = tokens(mode);
   return {
     palette: {
       mode: mode,
@@ -162,9 +161,6 @@ export const themeSettings = (mode) => {
             },
             contrastThreshold: 3,
             tonalOffset: 0.2,
-            // background: {
-            //   default: colors.primary[900],
-            // },
           }),
     },
     typography: {
@@ -195,9 +191,6 @@ export const themeSettings = (mode) => {
         fontSize: 14,
       },
     },
-    toolbar: {
-      
-    }
   };
 };
 

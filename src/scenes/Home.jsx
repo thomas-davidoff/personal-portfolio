@@ -5,6 +5,14 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MailIcon from '@mui/icons-material/Mail';
 
+// import Timeline from '@mui/lab/Timeline';
+// import TimelineItem from '@mui/lab/TimelineItem';
+// import TimelineSeparator from '@mui/lab/TimelineSeparator';
+// import TimelineConnector from '@mui/lab/TimelineConnector';
+// import TimelineContent from '@mui/lab/TimelineContent';
+// import TimelineDot from '@mui/lab/TimelineDot';
+// import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
+
 
 function Home() {
   const theme = useTheme();
@@ -50,6 +58,50 @@ function Home() {
         <IconBox icon={MailIcon} to="mailto:thomas.davidoff@gmail.com" />
         
       </Stack>
+
+
+      {/* <Timeline position="alternate">
+      <TimelineItem>
+        <TimelineOppositeContent color="text.secondary">
+          09:30 am
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineDot />
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent>Eat</TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineOppositeContent color="text.secondary">
+          10:00 am
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineDot />
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent>Code</TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineOppositeContent color="text.secondary">
+          12:00 am
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineDot />
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent>Sleep</TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineOppositeContent color="text.secondary">
+          9:00 am
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineDot />
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent>Repeat</TimelineContent>
+      </TimelineItem>
+    </Timeline> */}
       
 
     </Box>
