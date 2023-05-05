@@ -121,6 +121,7 @@ export default function MySidebar() {
             href="https://personal-portfolio-pdf-server.s3.us-east-2.amazonaws.com/resume_2_26_23.pdf"
             title="Click to go to my resume."
             target="_blank"
+            rel='noopener'
             sx={{
               padding: "5px",
               mt: "10px",

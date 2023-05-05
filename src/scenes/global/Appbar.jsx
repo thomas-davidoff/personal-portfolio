@@ -1,17 +1,16 @@
-import * as React from "react";
+import { ColorModeContext } from "src/theme";
+import { drawerWidth } from "src/scenes/global/sidebar/Sidebar";
+import { sidebarContext } from "src/scenes/global/sidebar/SidebarContext";
 import { styled, useTheme } from "@mui/material/styles";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import { useContext } from "react";
-import { ColorModeContext } from "src/theme";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import { drawerWidth } from "src/scenes/global/sidebar/Sidebar";
-import { sidebarContext } from "src/scenes/global/sidebar/SidebarContext";
-import { Divider, alpha, hexToRgb } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { alpha } from "@mui/material";
 import { Box } from "@mui/material";
 import { Button, Stack } from "@mui/material";
 import Link from "@mui/material/Link";
@@ -48,6 +47,24 @@ export default function MyAppBar() {
   const { sbIsOpen, toggle } = useContext(sidebarContext);
   const colorMode = useContext(ColorModeContext);
 
+  const smallScreen = useMediaQuery(theme.breakpoints.down("md"));
+
+  const ResumeButton = styled(Button)(({ theme }) => ({
+    // color: theme.palette.getContrastText(purple[500]),
+    color:
+      smallScreen === true
+        ? theme.palette.primary.main
+        : theme.palette.background.paper,
+    border: !smallScreen && `solid 1px ${theme.palette.background.paper}`,
+    "&:hover": {
+      backgroundColor:
+        smallScreen === true
+          ? alpha(theme.palette.primary.main, 0.1)
+          : alpha(theme.palette.background.paper, 0.1),
+      border: !smallScreen && `solid 1px ${theme.palette.background.paper}`,
+    },
+  }));
+
   return (
     <AppBar
       position="fixed"
@@ -82,6 +99,8 @@ export default function MyAppBar() {
             flexDirection="row"
             alignItems="center"
             sx={{ ...(sbIsOpen && { display: "none" }) }}
+            width="50px"
+            whiteSpace="nowrap"
           >
             <IconButton
               color="inherit"
@@ -102,6 +121,10 @@ export default function MyAppBar() {
           <Stack direction="row" spacing={theme.spacing(1)} alignItems="center">
             {[
               {
+                text: "Home",
+                link: "/",
+              },
+              {
                 text: "Projects",
                 link: "/projects",
               },
@@ -110,7 +133,11 @@ export default function MyAppBar() {
                 link: "/contact",
               },
             ].map((obj) => (
-              <Box display="flex" position="relative">
+              <Box
+                display="flex"
+                position="relative"
+                key={`${obj.text}_${obj.link}`}
+              >
                 <Link
                   href={obj.link}
                   color="inherit"
@@ -133,11 +160,27 @@ export default function MyAppBar() {
                     },
                   }}
                 >
-                  {obj.text}
+                  <Typography variant="button">{obj.text}</Typography>
                 </Link>
               </Box>
             ))}
+          </Stack>
 
+          <Box
+            width="50px"
+            display="flex"
+            justifyContent="flex-end"
+            whiteSpace="nowrap"
+          >
+            <ResumeButton
+              variant="outlined"
+              component="a"
+              href="https://personal-portfolio-pdf-server.s3.us-east-2.amazonaws.com/resume_2_26_23.pdf"
+              title="Click to go to my resume."
+              target="_blank"
+            >
+              Resume
+            </ResumeButton>
             <IconButton
               onClick={colorMode.toggleColorMode}
               sx={{
@@ -145,6 +188,7 @@ export default function MyAppBar() {
                   md: theme.palette.background.paper,
                   xs: theme.palette.primary.main,
                 },
+                ml: "10px",
               }}
             >
               {theme.palette.mode === "dark" ? (
@@ -153,7 +197,7 @@ export default function MyAppBar() {
                 <DarkModeOutlinedIcon />
               )}
             </IconButton>
-          </Stack>
+          </Box>
         </Stack>
       </Toolbar>
     </AppBar>
