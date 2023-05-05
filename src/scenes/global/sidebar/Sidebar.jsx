@@ -41,7 +41,6 @@ export default function MySidebar() {
     toggle();
   };
 
-  const menuItemCount = 0;
 
   return (
     <Box sx={{ display: "flex" }}>

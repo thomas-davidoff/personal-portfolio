@@ -13,8 +13,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { alpha } from "@mui/material";
 import { Box } from "@mui/material";
 import { Button, Stack } from "@mui/material";
-import Link from "@mui/material/Link";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { Link } from "react-router-dom";
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -113,7 +113,7 @@ export default function MyAppBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Link href={"/"} color="inherit" underline="none">
+            <Link to={"/"} style={{textDecoration: 'none' , color: 'inherit'}}>
               <Typography variant="h5">THOMAS DAVIDOFF</Typography>
             </Link>
           </Box>
@@ -137,31 +137,29 @@ export default function MyAppBar() {
                 display="flex"
                 position="relative"
                 key={`${obj.text}_${obj.link}`}
+                component={Link}
+                to={obj.link}
+                sx={{"&:hover::before": {
+                  position: "absolute",
+                  content: '""',
+                  top: "-5px",
+                  backgroundColor: theme.palette.background.paper,
+                  width: "5px",
+                  height: "5px",
+                  borderRadius: "100%",
+                  display: "inline-flex",
+                  left: "calc(50% - 2.5px)",
+                },
+                display: {
+                  xs: "none",
+                  md: "flex",
+                },
+                textDecoration: 'none'}}
               >
-                <Link
-                  href={obj.link}
-                  color="inherit"
-                  underline="none"
-                  sx={{
-                    "&:hover::before": {
-                      position: "absolute",
-                      content: '""',
-                      top: "-5px",
-                      backgroundColor: theme.palette.background.paper,
-                      width: "5px",
-                      height: "5px",
-                      borderRadius: "100%",
-                      display: "inline-flex",
-                      left: "calc(50% - 2.5px)",
-                    },
-                    display: {
-                      xs: "none",
-                      md: "flex",
-                    },
-                  }}
-                >
-                  <Typography variant="button">{obj.text}</Typography>
-                </Link>
+                
+                  <Typography variant="button" sx={{color:theme.palette.background.paper}}>{obj.text}</Typography>
+                  
+                
               </Box>
             ))}
           </Stack>
