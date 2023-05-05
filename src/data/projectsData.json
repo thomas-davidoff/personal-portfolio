@@ -18,14 +18,15 @@
                 "type" : "website"
             }
         ],
-        "description" : "Lorem ipsum"
+        "description" : "This is a bot which leverages Google APIs to connect to a live sheet containing *non-protected* physical therapy appointment information, and sends appointment reminders to the holders. It aims to reduce rates of missed appointments simply due to forgetting they are scheduled. \n\n The bot connects to the sheet via OAuth2 using a generated token and an account which has access to the sheet. It parses the appointment data into a Pandas dataframe, filters the appointments by date, and compiles a list of newly created appointments (new data that did not exist in the last run) that occur on the day of the run or the next. It then connects to the Gmail API through the same process (OAuth2) and individually sends the appointment holders an email reminding them of their appointment, using a pre-formatted HTML template. No action is taken in the case where no new or upcoming appointments are found. \n\n The script is hosted on a free plan on PythonAnywhere, where it runs every day via built-in scheduling functionality similar to a Cronjob."
     },
     {
-        "title" : "Personal Portfolio Webapp (This site)",
+        "title" : "thomasdavidoff.com - Personal Portfolio",
         "technologies" : [
-            "React",
             "Javascript",
-            "Docker"
+            "ReactJS",
+            "MaterialUI",
+            "Responsive Design"
         ],
         "links" : [
             {
@@ -39,7 +40,7 @@
                 "type" : "website"
             }
         ],
-        "description" : "Lorem ipsum"
+        "description" : "Welcome!\n\n This site is written in Javascript using the ReactJS library. Nothing much more to say here except look at all these nicely centered divs and hover effects. The dark mode is terrible, but i'm happy with the fact that it exists. Visit the link to the GH repo using the tag-button directly above, or the one pinned to the bottom right of your screen. The app is hosted for free as a static site on DigitalOcean."
     },
     {
         "title" : "Prunalyzer",
@@ -59,7 +60,7 @@
                 "type" : "website"
             }
         ],
-        "description" : "This is blab balasdasdlasdasasdasd sdkjanskdjnas"
+        "description" : "Description coming soon."
     }
 ]
 

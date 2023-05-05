@@ -91,7 +91,10 @@ const PaperCard = ({ title = "Project", technologies = [], links = [], descripti
             </Box>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{
+            whiteSpace: 'pre-line',
+            verticalAlign: 'bottom'
+          }}>
             {description}
           </Typography>
         </AccordionDetails>

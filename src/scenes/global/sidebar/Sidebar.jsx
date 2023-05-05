@@ -83,12 +83,12 @@ export default function MySidebar() {
               link: "/projects",
               position: 1,
             },
-            {
-              text: "Contact",
-              icon: <EmailOutlinedIcon />,
-              link: "/contact",
-              position: 2,
-            },
+            // {
+            //   text: "Contact",
+            //   icon: <EmailOutlinedIcon />,
+            //   link: "/contact",
+            //   position: 2,
+            // },
           ].map((mappedObject) => (
             <ListItem
               key={`${mappedObject.text}_${mappedObject.link}`}
