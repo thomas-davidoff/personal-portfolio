@@ -127,11 +127,7 @@ export default function MyAppBar() {
               {
                 text: "Projects",
                 link: "/projects",
-              },
-              // {
-              //   text: "Contact",
-              //   link: "/contact",
-              // },
+              }
             ].map((obj) => (
               <Box
                 display="flex"

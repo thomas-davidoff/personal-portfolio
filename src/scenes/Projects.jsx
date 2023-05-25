@@ -26,7 +26,7 @@ function Blogs() {
     <React.Fragment>
       <Header
         title="Projects"
-        subtitle="This subtitle will give more information to the title, which is above."
+        subtitle="Check out my most recent projects here. More are on their way!"
       />
       <Box
         flexGrow={1}

@@ -61,6 +61,17 @@ export const tokens = (mode) => ({
           800: "#2a2d64",
           900: "#151632",
         },
+        indigo: {
+          100: "#dadbdc",
+          200: "#b6b8ba",
+          300: "#919497",
+          400: "#6d7175",
+          500: "#484d52",
+          600: "#3a3e42",
+          700: "#2b2e31",
+          800: "#1d1f21",
+          900: "#0e0f10"
+},
       }
     : {
         grey: {
@@ -75,15 +86,26 @@ export const tokens = (mode) => ({
           900: "#e0e0e0",
         },
         primary: {
-          100: "#040509",
-          200: "#080b12",
-          300: "#0c101b",
-          400: "#f2f0f0", // manually changed
-          500: "#141b2d",
-          600: "#1F2A40",
-          700: "#727681",
-          800: "#a1a4ab",
-          900: "#d0d1d5",
+          100: "#d2d8dc",
+          200: "#a5b1b9",
+          300: "#798b96",
+          400: "#4c6473",
+          500: "#1f3d50",
+          600: "#193140",
+          700: "#132530",
+          800: "#0c1820",
+          900: "#060c10"
+},
+        secondary: {
+          100: "#dff1fb",
+          200: "#bfe2f7",
+          300: "#9fd4f2",
+          400: "#7fc5ee",
+          500: "#5fb7ea",
+          600: "#4c92bb",
+          700: "#396e8c",
+          800: "#26495e",
+          900: "#13252f"
         },
         greenAccent: {
           100: "#0f2922",
@@ -123,6 +145,7 @@ export const tokens = (mode) => ({
 
 // mui theme settings
 export const themeSettings = (mode) => {
+  const colors = tokens(mode)
   return {
     palette: {
       mode: mode,
@@ -147,10 +170,12 @@ export const themeSettings = (mode) => {
         : {
             // palette values for light mode
             primary: {
-              main: '#1f3d50',
+              light: colors.primary[400],
+              main: colors.primary[500],
+              dark: colors.primary[700]
             },
             secondary: {
-              main: '#5fb7ea',
+              main: colors.secondary[500],
             },
             background: {
               default: '#f4f3fd',

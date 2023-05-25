@@ -21,7 +21,7 @@ const PaperCard = ({ title = "Project", technologies = [], links = [], descripti
   const AccordionItem = styled(Accordion)(() => ({
     backgroundColor:
       theme.palette.mode === "dark"
-        ? "#1A2027"
+        ? theme.palette.background.default
         : theme.palette.background.default,
     ...theme.typography.body2,
     padding: theme.spacing(2),
@@ -47,8 +47,7 @@ const PaperCard = ({ title = "Project", technologies = [], links = [], descripti
     <AccordionItem
       sx={{
         "&:hover": {
-          color: "gray",
-          border: `1px solid ${theme.palette.secondary.main}`,
+          border: `1px solid ${theme.palette.primary.light}`,
           bgcolor: theme.palette.background.paper,
           scale: "1.02",
         },
