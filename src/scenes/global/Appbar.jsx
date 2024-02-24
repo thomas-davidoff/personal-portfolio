@@ -169,7 +169,7 @@ export default function MyAppBar() {
             <ResumeButton
               variant="outlined"
               component="a"
-              href="https://personal-portfolio-pdf-server.s3.us-east-2.amazonaws.com/resume_2_26_23.pdf"
+              href="https://personal-portfolio-pdf-server.s3.us-east-2.amazonaws.com/resume_2_24_2024.docx"
               title="Click to go to my resume."
               target="_blank"
             >
