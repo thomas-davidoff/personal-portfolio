@@ -75,7 +75,11 @@ function Welcome() {
               Let&apos;s connect!
             </Typography>
 
-            <Stack direction="row" spacing={spacing(3)}>
+            <Stack
+              direction="row"
+              spacing={spacing(3)}
+              sx={{ justifyContent: { xs: 'center', md: 'left' } }}
+            >
               <IconBox icon={LinkedInIcon} to="https://www.linkedin.com/in/thomas-davidoff" />
               <IconBox icon={GitHubIcon} to="https://github.com/thomas-davidoff" />
               <IconBox icon={MailIcon} to="mailto:thomas.davidoff@gmail.com" />

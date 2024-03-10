@@ -53,7 +53,6 @@ export default function MyAppBar() {
             display: 'flex',
             justifyContent: 'space-between',
             width: '100%',
-            border: '1px solid green',
           }}
         >
           <Box
@@ -64,7 +63,6 @@ export default function MyAppBar() {
               width: '15%',
               whiteSpace: 'nowrap',
               justifyContent: 'flex-start',
-              border: '1px solid red',
             }}
           >
             <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -74,7 +72,7 @@ export default function MyAppBar() {
             </Link>
           </Box>
 
-          <Stack direction="row" spacing={spacing(1)} alignItems="center" border="1px solid blue">
+          <Stack direction="row" spacing={spacing(1)} alignItems="center">
             {[
               {
                 text: 'Home',
