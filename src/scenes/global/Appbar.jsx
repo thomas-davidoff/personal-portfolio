@@ -23,7 +23,6 @@ export default function MyAppBar() {
   const smallScreen = useMediaQuery(breakpoints.down('md'));
 
   const ResumeButton = styled(Button)(() => ({
-    // color: smallScreen === true ? palette.primary.main : palette.background.paper,
     border: !smallScreen && `solid 1px ${palette.primary.main}`,
     '&:hover': {
       backgroundColor:
@@ -36,8 +35,8 @@ export default function MyAppBar() {
 
   return (
     <MuiAppBar
-      position="sticky"
-      elevation={4}
+      position="fixed"
+      // elevation={4}
       sx={{
         height: constants.appBarHeight,
         backgroundColor: palette.background.paper,
@@ -54,6 +53,7 @@ export default function MyAppBar() {
             display: 'flex',
             justifyContent: 'space-between',
             width: '100%',
+            border: '1px solid green',
           }}
         >
           <Box
@@ -64,6 +64,7 @@ export default function MyAppBar() {
               width: '15%',
               whiteSpace: 'nowrap',
               justifyContent: 'flex-start',
+              border: '1px solid red',
             }}
           >
             <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -73,7 +74,7 @@ export default function MyAppBar() {
             </Link>
           </Box>
 
-          <Stack direction="row" spacing={spacing(1)} alignItems="center">
+          <Stack direction="row" spacing={spacing(1)} alignItems="center" border="1px solid blue">
             {[
               {
                 text: 'Home',
@@ -103,11 +104,12 @@ export default function MyAppBar() {
               title="Click to go to my resume."
               target="_blank"
             >
-              Resume
+              resume
             </ResumeButton>
             <IconButton
               onClick={colorMode.toggleColorMode}
               sx={{
+                display: { xs: 'none', md: 'flex' },
                 color: {
                   xs: palette.primary.main,
                 },

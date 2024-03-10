@@ -73,6 +73,7 @@ function JsonDisplay() {
         overflowX: 'auto',
         whiteSpace: 'pre-wrap',
         margin: 'auto',
+        width: '100%',
       }}
     >
       <RenderObj obj={noPhotoExplanation} indent={0} />

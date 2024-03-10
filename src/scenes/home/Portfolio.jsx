@@ -1,5 +1,4 @@
-import { Box, Typography } from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2/Grid2';
+import { Box, Typography, Grid } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import PaperCard from '@/components/PaperCard';
 import projectData from '@/data/projectsData.json';
@@ -15,6 +14,7 @@ function Portfolio() {
         display: 'flex',
         flexDirection: 'column',
         alignContent: 'center',
+        paddingTop: `${constants.appBarHeight}px)`,
       }}
     >
       <Box
@@ -31,7 +31,7 @@ function Portfolio() {
         <Box
           borderBottom={`3px solid ${palette.primary.main}`}
           display="inline-block"
-          width="50%"
+          // width="50%"
           margin="auto"
           mb="40px"
         >
@@ -50,7 +50,7 @@ function Portfolio() {
         </Box>
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, md: 12 }} maxWidth="900px">
           {projectData.map((project) => (
-            <Grid xs={6} key={`${project.title}_grid_card`}>
+            <Grid item xs={6} key={`${project.title}_grid_card`}>
               <PaperCard
                 title={project.title}
                 technologies={project.technologies}
