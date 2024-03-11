@@ -1,4 +1,4 @@
-import { styled, useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -7,36 +7,19 @@ import React, { useContext } from 'react';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import {
-  alpha, Box, Button, Stack,
+  Box, Button, Stack, Divider,
 } from '@mui/material';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { Link } from 'react-router-dom';
 import { ColorModeContext } from '@/theme';
 import HeaderLink from '@/components/HeaderLink';
 
 export default function MyAppBar() {
-  const {
-    palette, constants, breakpoints, spacing,
-  } = useTheme();
+  const { palette, constants, spacing } = useTheme();
   const colorMode = useContext(ColorModeContext);
-
-  const smallScreen = useMediaQuery(breakpoints.down('md'));
-
-  const ResumeButton = styled(Button)(() => ({
-    border: !smallScreen && `solid 1px ${palette.primary.main}`,
-    '&:hover': {
-      backgroundColor:
-        smallScreen === true
-          ? alpha(palette.primary.main, 0.1)
-          : alpha(palette.background.paper, 0.1),
-      border: !smallScreen && `solid 1px ${palette.primary.main}`,
-    },
-  }));
 
   return (
     <MuiAppBar
       position="fixed"
-      // elevation={4}
       sx={{
         height: constants.appBarHeight,
         backgroundColor: palette.background.paper,
@@ -66,13 +49,18 @@ export default function MyAppBar() {
             }}
           >
             <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <Typography variant="h5" sx={{ textTransform: 'uppercase' }}>
+              <Typography variant="h4" sx={{ textTransform: 'uppercase' }}>
                 thomas davidoff
               </Typography>
             </Link>
           </Box>
 
-          <Stack direction="row" spacing={spacing(1)} alignItems="center">
+          <Stack
+            direction="row"
+            spacing={spacing(1)}
+            alignItems="center"
+            divider={<Divider orientation="vertical" sx={{ height: '50%' }} />}
+          >
             {[
               {
                 text: 'Home',
@@ -83,7 +71,7 @@ export default function MyAppBar() {
                 link: '/#portfolio',
               },
             ].map((obj) => (
-              <HeaderLink text={obj.text} link={obj.link} />
+              <HeaderLink key={obj.text} text={obj.text} link={obj.link} />
             ))}
           </Stack>
 
@@ -95,15 +83,16 @@ export default function MyAppBar() {
               justifyContent: 'flex-end',
             }}
           >
-            <ResumeButton
+            <Button
+              color="secondary"
               variant="outlined"
               component="a"
               href="https://personal-portfolio-pdf-server.s3.us-east-2.amazonaws.com/resume_2_24_2024.docx"
-              title="Click to go to my resume."
+              title="Click to download to my resume."
               target="_blank"
             >
               resume
-            </ResumeButton>
+            </Button>
             <IconButton
               onClick={colorMode.toggleColorMode}
               sx={{
@@ -113,6 +102,7 @@ export default function MyAppBar() {
                 },
                 ml: '10px',
               }}
+              size="medium"
             >
               {palette.mode === 'dark' ? <LightModeOutlinedIcon /> : <DarkModeOutlinedIcon />}
             </IconButton>

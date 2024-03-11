@@ -10,7 +10,7 @@ function Portfolio() {
       id="portfolio"
       sx={{
         minHeight: `calc(100vh - ${constants.appBarHeight}px)`,
-        bgcolor: '#c6def1',
+        bgcolor: palette.background.accent,
         display: 'flex',
         flexDirection: 'column',
         alignContent: 'center',
@@ -29,22 +29,26 @@ function Portfolio() {
         }}
       >
         <Box
-          borderBottom={`3px solid ${palette.primary.main}`}
+          borderBottom={`2px solid ${palette.gray.dark}`}
           display="inline-block"
-          // width="50%"
           margin="auto"
           mb="40px"
         >
           <Typography
-            variant="h1"
-            color="primary"
+            variant="h2"
+            color={palette.text.primary}
             fontWeight="bold"
             align="center"
             sx={{ mb: '5px' }}
           >
             Projects
           </Typography>
-          <Typography variant="h5" color="secondary" align="center" sx={{ mb: '15px' }}>
+          <Typography
+            variant="h4"
+            color={palette.text.secondary}
+            align="center"
+            sx={{ mb: '15px' }}
+          >
             Check out my most recent projects here. More are on their way!
           </Typography>
         </Box>

@@ -9,10 +9,9 @@ import IconBox from '@/components/IconBox';
 import JsonDisplay from '@/components/JsonDisplay';
 
 function Welcome() {
-  const { spacing, constants } = useTheme();
+  const { spacing, constants, palette } = useTheme();
 
   return (
-    // <div />
     <Box
       id="welcome"
       sx={{
@@ -25,8 +24,13 @@ function Welcome() {
         padding: { xs: 5, md: 0 },
       }}
     >
-      <Typography variant="h1" gutterBottom textAlign="center">
-        Hi, I&apos;m Thomas 👋
+      <Typography marginBottom={3}>
+        <Typography variant="h1" textAlign="center" component="span" color={palette.text.primary}>
+          👋, I&apos;m&nbsp;
+        </Typography>
+        <Typography component="span" variant="h1" color={palette.primary.main}>
+          Thomas
+        </Typography>
       </Typography>
       <Grid container sx={{ maxWidth: '900px' }} spacing={3}>
         <Grid
@@ -51,27 +55,32 @@ function Welcome() {
         >
           <Box>
             <Typography
-              variant="h4"
+              variant="h3"
               gutterBottom
+              color={palette.text.primary}
               sx={{
-                fontWeight: 300,
                 textAlign: { xs: 'center', md: 'left' },
               }}
             >
               about
             </Typography>
-            <Typography variant="body1" paragraph sx={{ marginTop: { xs: 4, md: 0 } }}>
+            <Typography
+              variant="body1"
+              color={palette.text.secondary}
+              paragraph
+              sx={{ marginTop: { xs: 4, md: 0 } }}
+            >
               I was born in England, and was raised up and down the East coast of the US. I left
               home at an early age to study at the School of American Ballet, before starting a
               career as a full-time professional ballet dancer - first with Boston Ballet, then with
               Atlanta Ballet. After a major back-injury set me back, I immersed myself in
               self-directed learning, and currently work as an integrations specialist for Shiplify.
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography variant="body1" paragraph color={palette.text.secondary}>
               I&apos;m always striving to perform at my best, and constantly looking for new things
               to learn. I&apos;m heavily interested combining my arts background with tech.
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography variant="body1" paragraph color={palette.text.secondary}>
               Let&apos;s connect!
             </Typography>
 

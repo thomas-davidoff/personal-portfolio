@@ -1,144 +1,146 @@
 import { createContext, useState, useMemo } from 'react';
 import { createTheme } from '@mui/material/styles';
-import { grey, blue, red } from '@mui/material/colors';
+import {
+  grey, blue, red, lightGreen,
+} from '@mui/material/colors';
 
 // color design tokens export
 export const tokens = (mode) => ({
   ...(mode === 'dark'
     ? {
-      grey: {
-        100: '#e0e0e0',
-        200: '#c2c2c2',
-        300: '#a3a3a3',
-        400: '#858585',
-        500: '#666666',
-        600: '#525252',
-        700: '#3d3d3d',
-        800: '#292929',
-        900: '#141414',
-      },
       primary: {
-        100: '#d0d1d5',
-        200: '#a1a4ab',
-        300: '#727681',
-        400: '#1F2A40',
-        500: '#141b2d',
-        600: '#101624',
-        700: '#0c101b',
-        800: '#080b12',
-        900: '#040509',
+        100: '#e9f6f3',
+        200: '#d3eee8',
+        300: '#bde5dc',
+        400: '#a7ddd1',
+        500: '#91d4c5',
+        600: '#74aa9e',
+        700: '#577f76',
+        800: '#3a554f',
+        900: '#1d2a27',
       },
-      greenAccent: {
-        100: '#dbf5ee',
-        200: '#b7ebde',
-        300: '#94e2cd',
-        400: '#70d8bd',
-        500: '#4cceac',
-        600: '#3da58a',
-        700: '#2e7c67',
-        800: '#1e5245',
-        900: '#0f2922',
+      secondary: {
+        100: '#fae9e3',
+        200: '#f6d3c7',
+        300: '#f1bdab',
+        400: '#eda78f',
+        500: '#e89173',
+        600: '#ba745c',
+        700: '#8b5745',
+        800: '#5d3a2e',
+        900: '#2e1d17',
       },
-      redAccent: {
-        100: '#f8dcdb',
-        200: '#f1b9b7',
-        300: '#e99592',
-        400: '#e2726e',
-        500: '#db4f4a',
-        600: '#af3f3b',
-        700: '#832f2c',
-        800: '#58201e',
-        900: '#2c100f',
+      deepOrange: {
+        100: '#f7d9d0',
+        200: '#efb4a1',
+        300: '#e88e73',
+        400: '#e06944',
+        500: '#d84315',
+        600: '#ad3611',
+        700: '#82280d',
+        800: '#561b08',
+        900: '#2b0d04',
       },
-      blueAccent: {
-        100: '#e1e2fe',
-        200: '#c3c6fd',
-        300: '#a4a9fc',
-        400: '#868dfb',
-        500: '#6870fa',
-        600: '#535ac8',
-        700: '#3e4396',
-        800: '#2a2d64',
-        900: '#151632',
+      gray: {
+        100: '#ececec',
+        200: '#d8d8d8',
+        300: '#c5c5c5',
+        400: '#b1b1b1',
+        500: '#9e9e9e',
+        600: '#7e7e7e',
+        700: '#5f5f5f',
+        800: '#3f3f3f',
+        900: '#202020',
       },
-      indigo: {
-        100: '#dadbdc',
-        200: '#b6b8ba',
-        300: '#919497',
-        400: '#6d7175',
-        500: '#484d52',
-        600: '#3a3e42',
-        700: '#2b2e31',
-        800: '#1d1f21',
-        900: '#0e0f10',
+      darkBlue: {
+        100: '#d1d6dc',
+        200: '#a3adb9',
+        300: '#748395',
+        400: '#465a72',
+        500: '#18314f',
+        600: '#13273f',
+        700: '#0e1d2f',
+        800: '#0a1420',
+        900: '#050a10',
+      },
+      eerieBlack: {
+        100: '#d1d1d1',
+        200: '#a3a3a3',
+        300: '#757575',
+        400: '#474747',
+        500: '#191919',
+        600: '#141414',
+        700: '#0f0f0f',
+        800: '#0a0a0a',
+        900: '#050505',
       },
     }
     : {
-      grey: {
-        100: '#141414',
-        200: '#292929',
-        300: '#3d3d3d',
-        400: '#525252',
-        500: '#666666',
-        600: '#858585',
-        700: '#a3a3a3',
-        800: '#c2c2c2',
-        900: '#e0e0e0',
-      },
       primary: {
-        100: '#d2d8dc',
-        200: '#a5b1b9',
-        300: '#798b96',
-        400: '#4c6473',
-        500: '#1f3d50',
-        600: '#193140',
-        700: '#132530',
-        800: '#0c1820',
-        900: '#060c10',
+        100: '#d9dcf0',
+        200: '#b2b9e1',
+        300: '#8c97d3',
+        400: '#6574c4',
+        500: '#3f51b5',
+        600: '#324191',
+        700: '#26316d',
+        800: '#192048',
+        900: '#0d1024',
       },
       secondary: {
-        100: '#dff1fb',
-        200: '#bfe2f7',
-        300: '#9fd4f2',
-        400: '#7fc5ee',
-        500: '#5fb7ea',
-        600: '#4c92bb',
-        700: '#396e8c',
-        800: '#26495e',
-        900: '#13252f',
+        100: '#f6dcd3',
+        200: '#edb8a7',
+        300: '#e5957c',
+        400: '#dc7150',
+        500: '#d34e24',
+        600: '#a93e1d',
+        700: '#7f2f16',
+        800: '#541f0e',
+        900: '#2a1007',
       },
-      greenAccent: {
-        100: '#0f2922',
-        200: '#1e5245',
-        300: '#2e7c67',
-        400: '#3da58a',
-        500: '#4cceac',
-        600: '#70d8bd',
-        700: '#94e2cd',
-        800: '#b7ebde',
-        900: '#dbf5ee',
+      imperialRed: {
+        100: '#fed7d9',
+        200: '#fdafb3',
+        300: '#fd868c',
+        400: '#fc5e66',
+        500: '#fb3640',
+        600: '#c92b33',
+        700: '#972026',
+        800: '#64161a',
+        900: '#320b0d',
       },
-      redAccent: {
-        100: '#2c100f',
-        200: '#58201e',
-        300: '#832f2c',
-        400: '#af3f3b',
-        500: '#db4f4a',
-        600: '#e2726e',
-        700: '#e99592',
-        800: '#f1b9b7',
-        900: '#f8dcdb',
+      lavender: {
+        100: '#f7faff',
+        200: '#eff4ff',
+        300: '#e8efff',
+        400: '#e0e9ff',
+        500: '#d8e4ff',
+        600: '#adb6cc',
+        700: '#828999',
+        800: '#565b66',
+        900: '#2b2e33',
       },
-      blueAccent: {
-        100: '#151632',
-        200: '#2a2d64',
-        300: '#3e4396',
-        400: '#535ac8',
-        500: '#6870fa',
-        600: '#868dfb',
-        700: '#a4a9fc',
-        800: '#c3c6fd',
-        900: '#e1e2fe',
+      raisinBlack: {
+        100: '#d2d4d6',
+        200: '#a6a8ad',
+        300: '#797d84',
+        400: '#4d515b',
+        500: '#202632',
+        600: '#1a1e28',
+        700: '#13171e',
+        800: '#0d0f14',
+        900: '#06080a',
+      },
+      gray: {
+        100: '#ececec',
+        200: '#d8d8d8',
+        300: '#c5c5c5',
+        400: '#b1b1b1',
+        500: '#9e9e9e',
+        600: '#7e7e7e',
+        700: '#5f5f5f',
+        800: '#3f3f3f',
+        900: '#202020',
       },
     }),
 });
@@ -151,75 +153,197 @@ export const themeSettings = (mode) => {
       mode,
       ...(mode === 'dark'
         ? {
-          // palette values for dark mode
+          // Palette values for dark mode
           primary: {
-            main: grey[500],
+            light: colors.primary[400],
+            main: colors.primary[500], // Amber
+            dark: colors.primary[700],
+            contrastText: '#FFF',
           },
           secondary: {
-            main: blue[500],
+            main: colors.secondary[500], // Cyan
+            contrastText: '#FFF',
           },
-          neutral: {
-            // dark: colors.grey[700],
-            main: red[500],
-            // light: colors.grey[100],
+          gray: {
+            light: colors.gray[100],
+            main: colors.gray[500],
+            dark: colors.gray[600],
+          },
+          error: {
+            main: colors.deepOrange[500], // Deep Orange
           },
           background: {
-            default: '#001e3c',
+            default: colors.eerieBlack[500], // Dark background
+            paper: colors.eerieBlack[600], // Slightly lighter for paper
+            accent: colors.darkBlue[800], // Light green as an accent
+          },
+          text: {
+            primary: '#d7deea', // Light grey for primary text
+            secondary: '#BDBDBD', // Dimmed grey for secondary text
           },
         }
         : {
-          // palette values for light mode
+          // Palette values for light mode
           primary: {
             light: colors.primary[400],
-            main: colors.primary[500],
+            main: colors.primary[500], // Indigo
             dark: colors.primary[700],
+            contrastText: '#FFF',
           },
           secondary: {
-            main: colors.secondary[500],
+            main: colors.secondary[500], // Pink
+            contrastText: '#FFF',
           },
-          background: {
-            default: '#f4f3fd',
-            paper: '#f9f9f9',
+          gray: {
+            light: colors.gray[100],
+            main: colors.gray[500],
+            dark: colors.gray[600],
           },
           error: {
-            main: '#ff8a00',
+            main: colors.imperialRed[500], // Red
           },
-          contrastThreshold: 3,
-          tonalOffset: 0.2,
+          background: {
+            default: '#f4f3fd', // Light grey for main background
+            paper: '#FFFFFF', // White for paper
+            accent: colors.lavender[500], // Light green as an accent
+          },
+          text: {
+            primary: colors.raisinBlack[500], // Dark grey for primary text
+            secondary: colors.raisinBlack[300], // Medium grey for secondary text
+          },
         }),
     },
     typography: {
-      fontFamily: ['Source Code Pro', 'sans-serif'].join(','),
-      fontSize: 12,
+      fontFamily: 'Source Code Pro, serif',
       h1: {
-        fontFamily: ['Source Code Pro', 'sans-serif'].join(','),
-        fontSize: 40,
         fontWeight: 700,
+        fontSize: '3rem',
       },
       h2: {
-        fontFamily: ['Source Code Pro', 'sans-serif'].join(','),
-        fontSize: 32,
+        fontWeight: 600,
+        fontSize: '2rem',
       },
       h3: {
-        fontFamily: ['Source Code Pro', 'sans-serif'].join(','),
-        fontSize: 24,
+        fontWeight: 500,
+        fontSize: '1.5rem',
       },
       h4: {
-        fontFamily: ['Source Code Pro', 'sans-serif'].join(','),
-        fontSize: 20,
+        fontWeight: 500,
+        fontSize: '1rem',
       },
       h5: {
-        fontFamily: ['Source Code Pro', 'sans-serif'].join(','),
-        fontSize: 16,
+        fontWeight: 500,
+        fontSize: '0.875rem',
       },
       h6: {
-        fontFamily: ['Source Code Pro', 'sans-serif'].join(','),
-        fontSize: 14,
+        fontWeight: 300,
+        fontSize: '0.75rem',
+      },
+      body1: {
+        fontWeight: 400,
+        fontSize: '1rem',
+      },
+      body2: {
+        fontWeight: 400,
+        fontSize: '0.875rem',
+      },
+      button: {
+        fontSize: '0.875rem',
+        fontWeight: 400,
+      },
+    },
+    components: {
+      MuiTypography: {
+        styleOverrides: {
+          // Custom "code" style
+          code: {
+            fontFamily: '"Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace',
+            color: '#d7deea',
+            fontSize: '0.875rem', // 14px when the base font size is 16px
+          },
+        },
       },
     },
     constants: { appBarHeight: 70 },
   };
 };
+// return {
+//   palette: {
+//     mode,
+//     ...(mode === 'dark'
+//       ? {
+//         // palette values for dark mode
+//         primary: {
+//           main: grey[500],
+//         },
+//         secondary: {
+//           main: blue[500],
+//         },
+//         neutral: {
+//           // dark: colors.grey[700],
+//           main: red[500],
+//           // light: colors.grey[100],
+//         },
+//         background: {
+//           default: '#001e3c',
+//         },
+//       }
+//       : {
+//         // palette values for light mode
+//         primary: {
+//           light: colors.primary[100],
+//           main: colors.primary[500],
+//           dark: colors.primary[900],
+//         },
+//         secondary: {
+//           main: colors.secondary[500],
+//         },
+//         background: {
+//           default: '#f4f3fd',
+//           paper: '#f9f9f9',
+//           accent: colors.lightBlueAccent[500],
+//         },
+//         text: {
+//           primary: #0f0f0f
+//         }
+//         error: {
+//           main: '#ff8a00',
+//         },
+//         contrastThreshold: 3,
+//         tonalOffset: 0.2,
+//       }),
+//   },
+//   typography: {
+//     fontFamily: ['Source Code Pro', 'sans-serif'].join(','),
+//     fontSize: 12,
+//     h1: {
+//       fontFamily: ['Source Code Pro', 'sans-serif'].join(','),
+//       fontSize: 40,
+//       fontWeight: 700,
+//     },
+//     h2: {
+//       fontFamily: ['Source Code Pro', 'sans-serif'].join(','),
+//       fontSize: 32,
+//     },
+//     h3: {
+//       fontFamily: ['Source Code Pro', 'sans-serif'].join(','),
+//       fontSize: 24,
+//     },
+//     h4: {
+//       fontFamily: ['Source Code Pro', 'sans-serif'].join(','),
+//       fontSize: 20,
+//     },
+//     h5: {
+//       fontFamily: ['Source Code Pro', 'sans-serif'].join(','),
+//       fontSize: 16,
+//     },
+//     h6: {
+//       fontFamily: ['Source Code Pro', 'sans-serif'].join(','),
+//       fontSize: 14,
+//     },
+//   },
+//   constants: { appBarHeight: 70 },
+// };
 
 // context for color mode
 export const ColorModeContext = createContext({

@@ -5,18 +5,16 @@ import { Link } from 'react-router-dom';
 function IconBox({ icon, to }) {
   const { palette } = useTheme();
   return (
-    // <a href={to} target="_blank" rel="noopener noreferrer">
     <Link to={to} target="_blank" rel="noopener noreferrer">
       <Box
         component={icon}
         sx={{
           color: palette.primary.main,
           fontSize: '30px',
-          transition: 'all 0.3s ease-in-out',
+          transition: 'all 0.2s ease-in-out',
           '&:hover': {
-            // bgcolor: theme.palette.background.paper,
-            scale: '1.10',
-            color: palette.secondary.dark,
+            scale: '1.05',
+            color: palette.primary.light,
           },
         }}
       />
