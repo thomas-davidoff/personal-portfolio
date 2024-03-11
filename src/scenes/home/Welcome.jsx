@@ -70,15 +70,17 @@ function Welcome() {
               paragraph
               sx={{ marginTop: { xs: 4, md: 0 } }}
             >
-              I was born in England, and was raised up and down the East coast of the US. I left
-              home at an early age to study at the School of American Ballet, before starting a
-              career as a full-time professional ballet dancer - first with Boston Ballet, then with
-              Atlanta Ballet. After a major back-injury set me back, I immersed myself in
-              self-directed learning, and currently work as an integrations specialist for Shiplify.
+              I was born in England, but was raised on the East coast of the US. I left home at an
+              early age to study at the School of American Ballet, before starting a career as a
+              full-time professional ballet dancer - first with Boston Ballet, then with Atlanta
+              Ballet. After a major back injury put a halt to my career, I immersed myself in
+              self-directed learning, teaching myself to code in my spare-time. I currently work as
+              an integrations specialist for Shiplify.
             </Typography>
             <Typography variant="body1" paragraph color={palette.text.secondary}>
-              I&apos;m always striving to perform at my best, and constantly looking for new things
-              to learn. I&apos;m heavily interested combining my arts background with tech.
+              I&apos;m always striving to perform at my best, and consistently looking for new
+              things to learn. I&apos;m heavily interested in combining my arts background with
+              tech.
             </Typography>
             <Typography variant="body1" paragraph color={palette.text.secondary}>
               Let&apos;s connect!

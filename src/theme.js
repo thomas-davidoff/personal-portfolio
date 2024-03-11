@@ -208,8 +208,8 @@ export const themeSettings = (mode) => {
             accent: colors.lavender[500], // Light green as an accent
           },
           text: {
-            primary: colors.raisinBlack[500], // Dark grey for primary text
-            secondary: colors.raisinBlack[300], // Medium grey for secondary text
+            primary: colors.raisinBlack[600], // Dark grey for primary text
+            secondary: colors.raisinBlack[400], // Medium grey for secondary text
           },
         }),
     },

@@ -22,8 +22,26 @@ function PaperCard({
     backgroundColor: palette.background.default,
     color: palette.text.secondary,
     border: '1px solid transparent',
-    transition: 'all .2s ease-in-out',
+    transition: 'all .3s ease-out',
     padding: 10,
+    borderRadius: '8px', // Apply uniform border radius
+    '&:before': {
+      display: 'none', // Optionally remove the default border line inside the accordion
+    },
+    '&:first-of-type': {
+      borderRadius: '8px',
+    },
+    '&:last-of-type': {
+      borderRadius: '8px',
+    },
+    '&:hover': {
+      border: `1px solid ${palette.primary.light}`,
+      bgcolor: palette.background.paper,
+      scale: '1.02',
+    },
+    '&.Mui-expanded': {
+      '&.MuiAccordion-root': { bgcolor: palette.background.paper },
+    },
   }));
 
   const giveIcon = (iconKey) => {
@@ -40,12 +58,17 @@ function PaperCard({
 
   return (
     <AccordionItem
+      disableGutters
       sx={{
         '&:hover': {
           border: `1px solid ${palette.primary.light}`,
           bgcolor: palette.background.paper,
-          scale: '1.02',
         },
+        '&.Mui-expanded': {
+          '&.MuiAccordion-root': { bgcolor: palette.background.paper },
+        },
+        width: '100%',
+        mb: 2,
       }}
     >
       <AccordionSummary
@@ -54,7 +77,6 @@ function PaperCard({
         id="panel2a-header"
       >
         <Box paddingRight="10px" marginRight="5px" flexGrow={1}>
-          {/* Title/subtitle */}
           <Typography variant="h4" color="primary" gutterBottom>
             {title}
           </Typography>

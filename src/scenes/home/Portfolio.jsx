@@ -1,10 +1,25 @@
-import { Box, Typography, Grid } from '@mui/material';
+import {
+  Box, Typography, Grid, useMediaQuery,
+} from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import PaperCard from '@/components/PaperCard';
 import projectData from '@/data/projectsData.json';
 
 function Portfolio() {
-  const { constants, palette } = useTheme();
+  const { constants, palette, breakpoints } = useTheme();
+  const medScreen = useMediaQuery(breakpoints.up('md'));
+
+  const projects = medScreen
+    ? {
+      gridAreaA: projectData.filter((_, index) => index % 2 === 0),
+      gridAreaB: projectData.filter((_, index) => index % 2 !== 0),
+    }
+    : {
+      gridAreaA: projectData,
+    };
+
+  console.log(projects);
+
   return (
     <Box
       id="portfolio"
@@ -52,17 +67,42 @@ function Portfolio() {
             Check out my most recent projects here. More are on their way!
           </Typography>
         </Box>
-        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, md: 12 }} maxWidth="900px">
-          {projectData.map((project) => (
-            <Grid item xs={6} key={`${project.title}_grid_card`}>
-              <PaperCard
-                title={project.title}
-                technologies={project.technologies}
-                links={project.links}
-                description={project.description}
-              />
+        <Grid container maxWidth={900}>
+          <Grid item xs={12} md={6} sx={{ padding: 2, boxSizing: 'border-box' }}>
+            {medScreen
+              ? projectData
+                .filter((_, index) => index % 2 === 0)
+                .map((project) => (
+                  <PaperCard
+                    title={project.title}
+                    technologies={project.technologies}
+                    links={project.links}
+                    description={project.description}
+                  />
+                ))
+              : projectData.map((project) => (
+                <PaperCard
+                  title={project.title}
+                  technologies={project.technologies}
+                  links={project.links}
+                  description={project.description}
+                />
+              ))}
+          </Grid>
+          {medScreen && (
+            <Grid item xs={12} md={6} sx={{ padding: 2, boxSizing: 'border-box' }}>
+              {projectData
+                .filter((_, index) => index % 2 !== 0)
+                .map((project) => (
+                  <PaperCard
+                    title={project.title}
+                    technologies={project.technologies}
+                    links={project.links}
+                    description={project.description}
+                  />
+                ))}
             </Grid>
-          ))}
+          )}
         </Grid>
       </Box>
     </Box>
