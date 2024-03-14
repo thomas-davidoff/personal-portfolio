@@ -18,12 +18,7 @@
   },
   {
     "title": "thomasdavidoff.com - Personal Portfolio",
-    "technologies": [
-      "Javascript",
-      "ReactJS",
-      "MaterialUI",
-      "Responsive Design"
-    ],
+    "technologies": ["Javascript", "ReactJS", "MaterialUI", "Responsive Design"],
     "links": [
       {
         "label": "Github",
@@ -32,7 +27,7 @@
       },
       {
         "label": "Homepage",
-        "destination": "https://www.thomasdavidoff.com",
+        "destination": "https://thomasdavidoff.com",
         "type": "website"
       }
     ],
@@ -46,34 +41,18 @@
         "label": "Github",
         "destination": "https://github.com/thomas-davidoff/Prunalyzer",
         "type": "github"
-      },
-      {
-        "label": "Live Demo",
-        "destination": "https://thomas-davidoff-prunalyzer-home-qzshw3.streamlit.app/",
-        "type": "website"
       }
     ],
     "description": "Description coming soon."
   },
   {
     "title": "Personal Finance App",
-    "technologies": [
-      "Flask",
-      "React",
-      "Redux Toolkit (RTK)",
-      "SQLite",
-      "SQLAlchemy"
-    ],
+    "technologies": ["Flask", "React", "Redux Toolkit (RTK)", "SQLite", "SQLAlchemy"],
     "links": [
       {
         "label": "Github",
-        "destination": "https://github.com/thomas-davidoff/personal-portfolio",
+        "destination": "https://github.com/thomas-davidoff/personal-finance",
         "type": "github"
-      },
-      {
-        "label": "Homepage",
-        "destination": "https://www.thomasdavidoff.com",
-        "type": "website"
       }
     ],
     "description": "Welcome!\n\n This site is written in Javascript using the ReactJS library. Nothing much more to say here except look at all these nicely centered divs and hover effects. The dark mode is terrible, but i'm happy with the fact that it exists. Visit the link to the GH repo using the tag-button directly above, or the one pinned to the bottom right of your screen. The app is hosted for free as a static site on DigitalOcean."
