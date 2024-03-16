@@ -1,20 +1,22 @@
 import React from 'react';
 import {
-  useTheme, Box, Chip, Typography, Stack, Divider, IconButton, Button,
+  useTheme, Box, Typography, Stack, Divider, Button,
 } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import styled from '@emotion/styled';
-import { LanguageSharp, ManOutlined } from '@mui/icons-material';
+import { LanguageSharp } from '@mui/icons-material';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 function PaperCard({
   title = 'Project',
   technologies = [],
   links = [],
   description = 'Example descriptioon',
+  isFeatured = false,
 }) {
   const { palette } = useTheme();
 
@@ -77,9 +79,13 @@ function PaperCard({
         id="panel2a-header"
       >
         <Box paddingRight="10px" marginRight="5px" flexGrow={1}>
-          <Typography variant="h4" color="primary" gutterBottom>
-            {title}
-          </Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+            {isFeatured && <StarBorderIcon sx={{ mr: 1, color: palette.secondary.main }} />}
+            <Typography variant="h4" color="primary" gutterBottom>
+              {title}
+            </Typography>
+          </Box>
+
           <Stack
             direction="row"
             alignItems="center"
@@ -114,17 +120,6 @@ function PaperCard({
                   {mappedObj.label}
                 </Typography>
               </Button>
-              // <Chip
-              //   // color={palette.secondary.main}
-              //   key={`${title}_chip_link_to_${mappedObj.label}`}
-              //   label={mappedObj.label}
-              //   size="small"
-              //   component="a"
-              //   href={mappedObj.destination}
-              //   target="_blank"
-              //   clickable
-              //   icon={giveIcon(mappedObj.type)}
-              // />
             ))}
           </Stack>
         </Box>
@@ -139,8 +134,6 @@ function PaperCard({
           {description}
         </Typography>
       </AccordionDetails>
-
-      {/* Header Box */}
     </AccordionItem>
   );
 }

@@ -78,6 +78,7 @@ function Portfolio() {
                     technologies={project.technologies}
                     links={project.links}
                     description={project.description}
+                    isFeatured={project.isFeatured}
                   />
                 ))
               : projectData.map((project) => (
@@ -86,6 +87,7 @@ function Portfolio() {
                   technologies={project.technologies}
                   links={project.links}
                   description={project.description}
+                  isFeatured={project.isFeatured}
                 />
               ))}
           </Grid>
@@ -99,6 +101,7 @@ function Portfolio() {
                     technologies={project.technologies}
                     links={project.links}
                     description={project.description}
+                    isFeatured={project.isFeatured}
                   />
                 ))}
             </Grid>
