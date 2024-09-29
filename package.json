@@ -14,13 +14,13 @@
     "@mui/icons-material": "^5.15.19",
     "@mui/material": "^5.15.12",
     "@vitejs/plugin-react": "^4.2.1",
-    "react": "^18.2.0",
+    "react": "^18.3.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
     "vite": "^5.2.12"
   },
   "devDependencies": {
-    "@types/react": "^18.2.64",
+    "@types/react": "^18.3.0",
     "@types/react-dom": "^18.2.21",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
