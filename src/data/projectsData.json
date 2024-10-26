@@ -1,7 +1,33 @@
 [
+      {
+    "title": "Rokuctl",
+    "technologies": ["Python"],
+    "links": [
+      {
+        "label": "Github",
+        "destination": "https://github.com/thomas-davidoff/rokuctl",
+        "type": "github"
+      }
+    ],
+    "description": "The Roku app absolutely sucks so I made my own remote. Added a few aliases to my rc file, and some shortcuts to get to my favorite show with a basic command. Discovery via SSDP and control via the exposed api. I don't actually use this anymore since I segmented my home network and don't bother connecting to my IoT network. Bought a remote instead.",
+    "isFeatured": true
+  },
   {
+    "title": "Personal Finance API",
+    "technologies": ["Flask", "Python", "Docker"],
+    "links": [
+      {
+        "label": "Github",
+        "destination": "https://github.com/thomas-davidoff/perfi",
+        "type": "github"
+      }
+    ],
+    "description": "I developed front-end features too quickly during the first-attempt and it got unmanagemable. Second go-around was purely an API and has the basics more fleshed out (auth, testing, environment management, etc).",
+    "isFeatured": true
+  },
+    {
     "title": "thomasdavidoff.com - Personal Portfolio",
-    "technologies": ["Javascript", "ReactJS", "MaterialUI"],
+    "technologies": ["React", "js"],
     "links": [
       {
         "label": "Github",
@@ -14,8 +40,8 @@
         "type": "website"
       }
     ],
-    "description": "Welcome!\n\n This site is written in Javascript using the ReactJS library. Nothing much more to say here except look at all these nicely centered divs and hover effects. The dark mode is terrible, but i'm happy with the fact that it exists. Visit the link to the GH repo using the tag-button directly above, or the one pinned to the bottom right of your screen. The app is hosted for free as a static site on DigitalOcean.",
-    "isFeatured": true
+    "description": "You're looking at it rn.",
+    "isFeatured": false
   },
   {
     "title": "Personal Finance App",
@@ -27,8 +53,8 @@
         "type": "github"
       }
     ],
-    "description": "Description coming soon.",
-    "isFeatured": true
+    "description": "Description not coming soon. Deprecated project.",
+    "isFeatured": false
   },
   {
     "title": "Prunalyzer",

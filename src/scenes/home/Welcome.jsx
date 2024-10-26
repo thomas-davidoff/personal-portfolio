@@ -74,8 +74,7 @@ function Welcome() {
               early age to study at the School of American Ballet, before starting a career as a
               full-time professional ballet dancer - first with Boston Ballet, then with Atlanta
               Ballet. After a major back injury put a halt to my career, I immersed myself in
-              self-directed learning, teaching myself to code in my spare-time. I currently work as
-              an integrations specialist for Shiplify.
+              self-directed learning, teaching myself to code in my spare-time. I currently work for Shiplify as a devops and secops engineer (DevSecOps)
             </Typography>
             <Typography variant="body1" paragraph color={palette.text.secondary}>
               I&apos;m always striving to perform at my best, and consistently looking for new
